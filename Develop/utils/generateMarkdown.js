@@ -35,7 +35,38 @@ const licenseBadges = [
   `![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)`
 ]
 const licenseLinks = [
-
+  `https://opensource.org/licenses/Apache-2.0`,
+  `https://www.boost.org/LICENSE_1_0.txt`,
+  `https://opensource.org/licenses/BSD-3-Clause`,
+  `https://opensource.org/licenses/BSD-2-Clause`,
+  `http://creativecommons.org/publicdomain/zero/1.0/`,
+  `https://creativecommons.org/licenses/by/4.0/`,
+  `https://creativecommons.org/licenses/by-sa/4.0/`,
+  `https://creativecommons.org/licenses/by-nc/4.0/`,
+  `https://creativecommons.org/licenses/by-nd/4.0/`,
+  `https://creativecommons.org/licenses/by-nc-sa/4.0/`,
+  `https://creativecommons.org/licenses/by-nc-nd/4.0/`,
+  `https://opensource.org/licenses/EPL-1.0`,
+  `https://www.gnu.org/licenses/gpl-3.0`,
+  `https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html`,
+  `https://www.gnu.org/licenses/agpl-3.0`,
+  `https://www.gnu.org/licenses/lgpl-3.0`,
+  `https://www.gnu.org/licenses/fdl-1.3`,
+  `https://firstdonoharm.dev`,
+  `https://firstdonoharm.dev`,
+  `https://opensource.org/licenses/IPL-1.0`,
+  `https://opensource.org/licenses/ISC`,
+  `https://opensource.org/licenses/MIT`,
+  `https://opensource.org/licenses/MPL-2.0`,
+  `https://opendatacommons.org/licenses/by/`,
+  `https://opendatacommons.org/licenses/odbl/`,
+  `https://opendatacommons.org/licenses/pddl/`,
+  `https://opensource.org/licenses/Artistic-2.0`,
+  `https://opensource.org/licenses/Artistic-2.0`,
+  `https://opensource.org/licenses/OFL-1.1`,
+  `http://unlicense.org/`,
+  `http://www.wtfpl.net/about/`,
+  `https://opensource.org/licenses/Zlib`
 ]
 
 function renderLicenseBadge(license) {
@@ -110,10 +141,76 @@ function renderLicenseBadge(license) {
 
 // // TODO: Create a function that returns the license link
 // // If there is no license, return an empty string
-// function renderLicenseLink(license) {
-  
+function renderLicenseLink(license) {
+  if (license ==='None'){
+    return ''
+  }else if (license === 'Apache 2.0'){
+    return licenseLinks[0]
+  }else if (license === 'Boost 1.0'){
+    return licenseLinks[1]
+  }else if(license === 'BSD 3-Clause'){
+    return licenseLinks[2]
+  }else if (license === 'BSD 2-Clause'){
+    return licenseLinks[3]
+  }else if (license ===  'CC0'){
+    return licenseLinks[4]
+  }else if (license === 'Attribution 4.0 International'){
+    return licenseLinks[5]
+  }else if (license === 'Attribution-ShareAlike 4.0 International'){
+    return licenseLinks[6]
+  }else if (license === 'Attribution-NonCommercial 4.0 International'){
+    return licenseLinks[7]
+  }else if (license === 'Attribution-NoDerivates 4.0 International'){
+    return licenseLinks[8]
+  }else if (license ==='Attribution-NonCommmercial-ShareAlike 4.0 International'){
+    return licenseLinks[9]
+  }else if (license === 'Attribution-NonCommercial-NoDerivatives 4.0 International'){
+    return licenseLinks[10]
+  }else if (license === 'Eclipse Public License 1.0'){
+    return licenseLinks[11]
+  }else if (license === 'GNU GPL v3'){
+    return licenseLinks[12]
+  }else if (license === 'GNU GPL v2'){
+    return licenseLinks[13]
+  }else if (license === 'GNU AGPL v3'){
+    return licenseLinks[14]
+  }else if (license==='GNU LGPL v3'){
+    return licenseLinks[15]
+  }else if (license==='GNU FDL v1.3'){
+    return licenseLinks[16]
+  }else if (license === 'The Hippocratic License 2.1'){
+    return  licenseLinks[17]
+  }else if (license=== 'The Hippocratic License 3.0'){
+    return licenseLinks[18]
+  }else if (license==='IBM Public License Version 1.0'){
+    return licenseLinks[19]
+  }else if (license==='ISC License (ISC)'){
+    return licenseLinks[20]
+  }else if (license==='The MIT License'){
+    return licenseLinks[21]
+  }else if (license==='Mozilla Public License 2.0'){
+    return licenseLinks[22]
+  }else if (license==='Attribution License (BY)'){
+    return licenseLinks[23]
+  }else if (license==='Open Database License (ODbL)'){
+    return licenseLinks[24]
+  }else if (license==='Public Domain Dedication and License (PDDL)'){
+    return licenseLinks[25]
+  }else if (license==='The Perl License'){
+    return licenseLinks[26]
+  }else if (license==='The Artistic License 2.0'){
+    return licenseLinks[27]
+  }else if (license==='SIL Open Font License 1.1'){
+    return licenseLinks[28]
+  }else if (license === 'The Unlicense'){
+    return licenseLinks[29]
+  }else if (license==='The Do What the Fuck You Want to Public License'){
+    return licenseLinks[30]
+  }else if (license==='The zlib/libpng License'){
+    return licenseLinks[31]
+  }
 
-// }
+}
 
 // // TODO: Create a function that returns the license section of README
 // // If there is no license, return an empty string
@@ -121,12 +218,14 @@ function renderLicenseSection(license) {
   if (license == "None"){
     return ``
   }else{
-    return `##License
-    ${renderLicenseBadge(license)}
+  return `
+  ## License
+  
+  ${renderLicenseBadge(license)}
 
-    This project is licensed under the ${license} License.
+  This project is licensed under the ${license} License.
 
-    For more information go to ${renderLicenseLink(license)}.`
+  For more information go to ${renderLicenseLink(license)}.`
   }
 }
 
@@ -134,24 +233,30 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-##Description
+## Description
+
 ${data.description}
 
-##Installation Instructions
+## Installation Instructions
+
 ${data.installation}
 
-##Usage
+## Usage
+
 ${data.usage}
 
 ${renderLicenseSection(data.license)}
 
-##Contributing
+## Contributing
+
 ${data.contribution}
 
-##Tests
+## Tests
+
 ${data.tests}
 
-##Questions
+## Questions
+
 For questions, contact me at 
 ${data.email} or www.github.com/${data.github}`;
 }
