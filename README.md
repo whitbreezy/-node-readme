@@ -16,7 +16,7 @@ Note: Node.js is needed in order to run this code from the command line.
 
 Once the code is on your machine locally, you can run node index.js to bring up and answer the prompts. The prompt answers you entered are then used to create a readme.md file in the directory being used.
 
-See walkthrough video: https://drive.google.com/file/d/1AuP_i0mAaX_mI0ZImRDuFtMkRUBhkS3B/view
+See walkthrough video: https://drive.google.com/file/d/1YS7n-7CEBluTxwYSCLzIb18pbpw5XoBP/view
 
 ## License
 
